@@ -21,14 +21,6 @@ setGeneric("qcPlots", function(metadata_path, expr.df, output_dir, filename_ext 
 setMethod("qcPlots", signature(metadata_path = "character", expr.df = "data.frame"),
           function(metadata_path, expr.df, output_dir, filename_ext = "", columns_per_plot){
 
-            # metadata_path is filename of metadata file (full path not needed; will be looked for in output_dir)
-            # expr.df       is expression dataframe eg log2prot.df
-            # output_dir    is where figures will be put, either relative or full path, e.g.
-            #    "Z:/Trost-group/Andy_F/2_Connect_FTMA_AF_2025/Multiomics/Proteomics/2025_UbiSCAPE/lib_free_search/Analysis"
-            # filename_ext  is spliced into into output file names e.g. if filename_ext = "MEDNORM",
-            #               output files will be log2protboxplotsMEDNORM_all.jpeg etc. Use filename_ext = "" to leave the base forms unchanged.
-            # columns_per_plot is for boxplots
-
             # Read metadata
             metadata <- read.table(metadata_path, stringsAsFactors = FALSE, header = TRUE, sep = "\t")
 
@@ -47,7 +39,7 @@ setMethod("qcPlots", signature(metadata_path = "character", expr.df = "data.fram
 
             # 3. Save all plots in one JPEG file
             output_file_boxplots <- file.path(output_dir, paste0("log2protboxplots", filename_ext, "_all.jpg"))
-            jpeg(file = output_file_boxplots, width = 1600, height = 1200 * num_plots, res = 150)
+            jpeg(filename = output_file_boxplots, width = 1600, height = 1200 * num_plots, res = 150)
 
             # Adjust layout to stack multiple plots vertically
             par(mfrow = c(num_plots, 1))  # One column, multiple rows
@@ -97,7 +89,7 @@ setMethod("qcPlots", signature(metadata_path = "character", expr.df = "data.fram
                    lty = 1 , cex=0.5, ncol = 2, col=1:ncol(expr.df), xpd = TRUE, inset = c(-0.1, 0))
 
             output_file_density <- file.path(output_dir, paste0("log2protdensity", filename_ext, "_plot.jpg"))
-            jpeg(file = output_file_density, width = 1600, height = 1200, res = 150)
+            jpeg(filename = output_file_density, width = 1600, height = 1200, res = 150)
             plotDensities(expr.df, legend=FALSE)
             legend("topright", legend = colnames(expr.df),
                    lty = 1 , cex=0.75, ncol = 2, col=1:ncol(expr.df), xpd = TRUE)
@@ -112,7 +104,7 @@ setMethod("qcPlots", signature(metadata_path = "character", expr.df = "data.fram
 
             # Save the correlation plot to a JPEG file with high resolution
             output_file_correlation <- file.path(output_dir, paste0("log2protcorrelation", filename_ext, "_plot.jpg"))
-            jpeg(file = output_file_correlation , width = 8000, height = 8000, res = 300)
+            jpeg(filename = output_file_correlation , width = 8000, height = 8000, res = 300)
 
             # Create the correlation plot
             corrplot(m_all,
@@ -167,7 +159,7 @@ setMethod("qcPlots", signature(metadata_path = "character", expr.df = "data.fram
             PCA
             # Save the plot as a high-resolution jpeg
             output_file_PCA <- file.path(output_dir, paste0("log2protPCA", filename_ext, "_QC.jpg"))
-            jpeg(file = output_file_PCA, width = 2200, height = 1800, res = 300)
+            jpeg(filename = output_file_PCA, width = 2200, height = 1800, res = 300)
             print(PCA)
             dev.off()  # Close the graphics device and save the file
 

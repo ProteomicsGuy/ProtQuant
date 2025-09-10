@@ -63,5 +63,5 @@ Apply a standard pre-processing pipeline.
 }
 \details{
 This function applies a standard pre-processing pipeline with some
-useful customization options#'
+useful customization options
 }

@@ -1,10 +1,15 @@
 
 #' @import methods
 #' @import RColorBrewer
+#' @import limma
+#' @import ggplot2
 #' @importFrom dplyr select
 #' @importFrom dplyr filter
 #' @importFrom dplyr pull
 #' @importFrom dplyr matches
+#' @importFrom dplyr group_by
+#' @importFrom dplyr summarise
+#' @importFrom dplyr ungroup
 #' @importFrom magrittr %>%
 #' @importFrom limma normalizeMedianValues
 #' @importFrom arrow read_parquet
@@ -14,10 +19,23 @@
 #' @importFrom data.table fread
 #' @importFrom data.table setDT
 #' @importFrom utils read.table
+#' @importFrom utils write.table
+#' @importFrom grDevices chull
+#' @importFrom grDevices colorRampPalette
+#' @importFrom grDevices dev.off
+#' @importFrom grDevices jpeg
+#' @importFrom graphics boxplot
+#' @importFrom graphics legend
+#' @importFrom graphics par
+#' @importFrom stats cor
+#' @importFrom stats na.omit
+#' @importFrom stats prcomp
+#' @importFrom corrplot corrplot
+#' @importFrom randomcoloR distinctColorPalette
+#' @importFrom plyr ddply
 
 
-
-globalVariables(c("Protein.Group", "Stripped.Sequence"))
+globalVariables(c("Protein.Group", "Stripped.Sequence", "Counts", "Group", "PC1", "PC2", "condition", "mean_count"))
 
 #' @title Preprocessing for CQEs
 #' @description Apply a standard pre-processing pipeline.
