@@ -1,0 +1,23 @@
+Package: ProtQuant
+Title: An R package for easy calculation of metrics resulting from controlled quantitative experiments (CQEs)
+Version: 0.0.1
+Authors@R: c(
+    person("Andrew", "Frey", , "andrew.frey1@newcastle.ac.uk", role = c("aut", "cre")),
+    person("John", "Casement", , "john.casement@newcastle.ac.uk", role = "aut"),
+    person("Graham", "smith", , "graham.smith3@newcastle.ac.uk", role = "aut"),
+    person("Sarah", "Inglesfield", , "sarah.inglesfield@babraham.ac.uk", role = "aut")
+  )
+Description: Applies preprocessing, QC and analysis.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    dplyr,
+    arrow,
+    diann,
+    limma,
+    magrittr,
+    utils,
+    data.table,
+    methods
