@@ -1,5 +1,6 @@
 
 #' @import methods
+#' @import RColorBrewer
 #' @importFrom dplyr select
 #' @importFrom dplyr filter
 #' @importFrom dplyr pull
@@ -15,12 +16,13 @@
 #' @importFrom utils read.table
 
 
+
 globalVariables(c("Protein.Group", "Stripped.Sequence"))
 
 #' @title Preprocessing for CQEs
 #' @description Apply a standard pre-processing pipeline.
 #' @details This function applies a standard pre-processing pipeline with some
-#' useful customization options#'
+#' useful customization options
 #' @docType methods
 #' @export
 #' @rdname standardProcessing-methods
