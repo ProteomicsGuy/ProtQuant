@@ -20,4 +20,7 @@ Imports:
     magrittr,
     utils,
     data.table,
-    methods
+    methods,
+    assertthat,
+    stringr,
+    tibble
