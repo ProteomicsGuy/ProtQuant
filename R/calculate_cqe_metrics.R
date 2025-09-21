@@ -36,10 +36,6 @@ globalVariables(
 #'
 #' @returns A tibble summarising the total number of proteins, "INV_FQR", "Precision" and "BS_FQR" per species.
 #' @export
-<<<<<<< HEAD
-=======
-
->>>>>>> 34a83c41dba728f7f85989fc4102b4b9b962b9b7
 calculate_cqe_metrics <- function(limma_df, species, expected_fcs, species_protein_annotation){
 
   # Do some checks and throw some errors if the inputs aren't as expected
