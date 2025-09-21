@@ -25,6 +25,7 @@ globalVariables(
 
 #' @title Calculate CQEs Metrics
 #' @description Calculate metrics to assess controlled quantitative experiments
+
 #' @param limma_df limma output (dataframe)
 #' @param species names of species compared (character vector)
 #' @param expected_fcs expected fold changes for each species (numeric vector)
@@ -34,7 +35,7 @@ globalVariables(
 #' the species must match with those provided in species vector
 #'
 #' @returns A tibble summarising the total number of proteins, "INV_FQR", "Precision" and "BS_FQR" per species.
-
+#' @export
 calculate_cqe_metrics <- function(limma_df, species, expected_fcs, species_protein_annotation){
 
   # Do some checks and throw some errors if the inputs aren't as expected
